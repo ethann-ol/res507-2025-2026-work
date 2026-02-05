@@ -2,7 +2,7 @@ name: CI Preview
 
 on:
   push:
-  pull-request:
+  pull_request:
 
 jobs:
   build:

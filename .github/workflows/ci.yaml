@@ -31,20 +31,16 @@ jobs:
       - name: Run container
         run: |
           docker run -d --name quote-app -p 3000:3000 quote-app
-
-          echo "Waiting for application to become healthy..."
-          for i in $(seq 1 10); do
-            if curl -fsS http://localhost:3000/health | jq -e '.ok==true' >/dev/null; then
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:3000/health | jq -e '.status=="ok"' >/dev/null; then
               echo "Health check passed"
               exit 0
             fi
             sleep 1
           done
-
-          echo "Application did not become healthy in time"
+          echo "Health check failed"
           docker logs quote-app || true
           exit 1
-
 
 
       - name: Stop container

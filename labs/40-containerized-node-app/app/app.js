@@ -19,7 +19,7 @@ export async function buildApp() {
   });
 
   // Health check endpoint
-  app.get("/health", async () => ({ ok: true }));
+  app.get("/health", async () => ({ status: "ok" }));
 
   // Get all quotes endpoint
   app.get("/", async (_req, reply) => {

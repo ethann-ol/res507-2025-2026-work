@@ -19,8 +19,6 @@ Ce diagramme représente :
 * Pods
 * Base PostgreSQL
 
-
-
 # Où se fait l’isolation ?
 
 L’isolation se fait à plusieurs niveaux :
@@ -283,7 +281,7 @@ Serveurs physiques
 
 # Architecture de production
 
-
+![alt text](future.png)
 
 # Cluster
 
@@ -381,8 +379,7 @@ GitHub
 
 Erreur introduite :
 
-[text](architecture-notes.md)
-
+![alt text](erreur.png)
 
 # Evénements Kubernetes
 
@@ -390,7 +387,7 @@ Exemple :
 
 ```
 Failed to pull image
-ImagePullBackOff
+ErrImageNeverPull
 ```
 
 
@@ -548,32 +545,3 @@ Nombre de Pods pouvant être indisponibles.
 Permet :
 
 * Zéro interruption de service
-
-
-
-# Critique de l’architecture
-
-## Points faibles
-
-* Une seule base PostgreSQL
-* Une seule VM
-
-
-
-## Risques
-
-* Crash VM
-* Perte disque
-
-
-
-## Sécurité
-
-* Pas de NetworkPolicy
-* Secrets non chiffrés
-
-
-
-## Monitoring
-
-* Monitoring incomplet
